@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>지피터스 AI 스터디 22기 — 온라인 설명회 요약 리포트</title>
+<meta name="description" content="2026-05-11 지피터스(GPTers) AI 스터디 22기 '바이브 코딩 스터디' 온라인 설명회 요약·인사이트 리포트" />
+<meta property="og:title" content="지피터스 AI 스터디 22기 — 설명회 요약 리포트" />
+<meta property="og:description" content="바이브 코딩 스터디 22기: 진행 방식, 스터디 라인업, 핵심 인사이트 정리" />
+<meta property="og:type" content="article" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+  :root{
+    --bg:#0c0d12; --bg-soft:#13151d; --card:#171a24; --card-2:#1c2030;
+    --line:#262b3b; --line-soft:#1e2230;
+    --txt:#e7e9f0; --txt-dim:#a9aec0; --txt-faint:#6b7185;
+    --accent:#7c6cf0; --accent-2:#a78bfa; --accent-soft:rgba(124,108,240,.14);
+    --good:#34d399; --warn:#fbbf24;
+    --maxw:880px;
+    --r:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(124,108,240,.18), transparent 60%),
+      radial-gradient(700px 400px at 0% 10%, rgba(52,211,153,.08), transparent 55%),
+      var(--bg);
+    color:var(--txt);
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:-.01em;
+    padding:0 20px 100px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto}
+  a{color:var(--accent-2);text-decoration:none;border-bottom:1px solid rgba(167,139,250,.3)}
+  a:hover{border-color:var(--accent-2)}
+
+  /* HERO */
+  header{padding:74px 0 16px;text-align:left}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--accent-2);
+    background:var(--accent-soft);border:1px solid rgba(124,108,240,.25);
+    padding:6px 12px;border-radius:999px;margin-bottom:22px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 12px var(--accent-2)}
+  h1{
+    font-size:clamp(28px,5.4vw,46px);font-weight:800;line-height:1.22;
+    letter-spacing:-.03em;margin-bottom:14px;
+    background:linear-gradient(180deg,#fff,#c8c9d6);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .sub{font-size:clamp(15px,2.5vw,18px);color:var(--txt-dim);max-width:640px;margin-bottom:26px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;font-size:13.5px;color:var(--txt-faint)}
+  .meta span{background:var(--bg-soft);border:1px solid var(--line-soft);padding:5px 11px;border-radius:8px}
+  .meta b{color:var(--txt-dim);font-weight:600}
+
+  /* SECTION */
+  section{margin-top:56px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+  .sec-num{font-size:13px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  h2{font-size:clamp(20px,3.4vw,26px);font-weight:750;letter-spacing:-.02em;color:#fff}
+  h3{font-size:15.5px;font-weight:700;color:var(--txt);margin:22px 0 8px}
+
+  /* CARDS / GRID */
+  .grid{display:grid;gap:14px}
+  @media(min-width:680px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+  .card{
+    background:linear-gradient(180deg,var(--card),var(--card-2));
+    border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;
+  }
+  .card.tldr{padding:22px 24px}
+  .card .k{font-size:12.5px;font-weight:700;color:var(--accent-2);letter-spacing:.02em;text-transform:uppercase;margin-bottom:6px}
+  .card p{color:var(--txt-dim);font-size:14.5px}
+  .card p strong{color:var(--txt);font-weight:650}
+  .lead{font-size:16px;color:var(--txt-dim);background:var(--accent-soft);border:1px solid rgba(124,108,240,.22);border-radius:var(--r);padding:18px 22px}
+  .lead strong{color:#fff;font-weight:700}
+
+  ul.clean{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  ul.clean li{position:relative;padding-left:22px;color:var(--txt-dim);font-size:14.5px}
+  ul.clean li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  ul.clean li strong{color:var(--txt);font-weight:650}
+  ul.clean li b{color:var(--accent-2);font-weight:650}
+
+  /* TABLE */
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+  th,td{text-align:left;padding:13px 16px;vertical-align:top;border-bottom:1px solid var(--line-soft)}
+  thead th{background:var(--bg-soft);color:var(--txt-dim);font-weight:650;font-size:12.5px;letter-spacing:.02em;text-transform:uppercase}
+  tbody tr:last-child td{border-bottom:none}
+  td.c,th.c{text-align:center;white-space:nowrap}
+  td strong{color:var(--txt);font-weight:650}
+  td.old{color:var(--txt-faint)}
+  td.new{color:var(--txt)}
+  .pill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:6px}
+  .pill.req{background:rgba(124,108,240,.16);color:var(--accent-2);border:1px solid rgba(124,108,240,.3)}
+  .pill.opt{background:rgba(107,113,133,.14);color:var(--txt-faint);border:1px solid var(--line)}
+  .pill.rec{background:rgba(251,191,36,.14);color:var(--warn);border:1px solid rgba(251,191,36,.3)}
+
+  /* TAG ROWS */
+  .taglist{display:flex;flex-direction:column;gap:14px}
+  .tagrow{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+  .tagcat{flex:0 0 130px;font-weight:700;font-size:14px;color:var(--accent-2);padding-top:2px}
+  .tagbody{flex:1;min-width:240px;color:var(--txt-dim);font-size:14.5px}
+  .tagbody em{font-style:normal;color:var(--txt);font-weight:600}
+  .note{margin-top:16px;font-size:13.5px;color:var(--txt-faint);border-left:2px solid var(--accent);padding:4px 0 4px 14px;background:linear-gradient(90deg,var(--accent-soft),transparent)}
+
+  /* INSIGHTS */
+  .insights{display:flex;flex-direction:column;gap:12px}
+  .ins{display:flex;gap:16px;background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--line);border-radius:var(--r);padding:18px 20px}
+  .ins-n{flex:0 0 34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px rgba(124,108,240,.3)}
+  .ins-b{flex:1}
+  .ins-b .t{font-weight:750;font-size:15.5px;color:#fff;margin-bottom:4px}
+  .ins-b .d{font-size:14.5px;color:var(--txt-dim)}
+  .ins-b .d b{color:var(--accent-2);font-weight:650}
+
+  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--txt-faint);line-height:1.7}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+  .toc a{font-size:13px;color:var(--txt-dim);background:var(--bg-soft);border:1px solid var(--line-soft);padding:7px 12px;border-radius:8px;border-bottom:1px solid var(--line-soft)}
+  .toc a:hover{color:var(--txt);border-color:var(--accent)}
+  @media print{body{background:#fff;color:#111}.card,.ins,.tbl-wrap{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow"><span class="dot"></span>설명회 요약 리포트 · 자동 전사 기반</span>
+    <h1>지피터스 AI 스터디 22기<br/>온라인 설명회 요약</h1>
+    <p class="sub">22기 = <strong style="color:#fff">“바이브 코딩 스터디”</strong>. AI 에이전트 시대에 맞춘 개편 — 진행 방식, 22개 스터디 라인업, 그리고 설명회에서 짚어준 핵심 인사이트를 한 페이지로 정리했습니다.</p>
+    <div class="meta">
+      <span><b>일시</b> 2026-05-11(월) 21:00–22:00 · 이후 후토크</span>
+      <span><b>진행</b> 다인(운영) + 스터디장 다수</span>
+      <span><b>분량</b> 녹화 약 88분</span>
+      <span><b>개강</b> 2026-05-18(월) · 4주</span>
+    </div>
+    <nav class="toc">
+      <a href="#tldr">한눈에 보기</a>
+      <a href="#why">왜 바이브 코딩</a>
+      <a href="#how">진행 방식</a>
+      <a href="#studies">스터디 라인업</a>
+      <a href="#tips">학습 팁</a>
+      <a href="#insights">핵심 인사이트</a>
+    </nav>
+  </header>
+
+  <!-- 1 -->
+  <section id="tldr">
+    <div class="sec-head"><span class="sec-num">01</span><h2>한눈에 보기</h2></div>
+    <p class="lead"><strong>“AI 전문가가 내 컴퓨터 안에 들어왔다.”</strong> 이제 AI에게 <em>질문</em>하는 게 아니라, <em>시키면 알아서</em> 파일·코드·자동화·문서 작성까지 해주는 시대 — 그래서 22기는 <strong>‘바이브 코딩 스터디’</strong>로 이름을 바꿨습니다.</p>
+    <div class="grid cols-2" style="margin-top:14px">
+      <div class="card tldr"><div class="k">규모</div><p><strong>참여자 역대 최대 ≈ 600명.</strong> 정원 30명 스터디를 2개 추가 개설해 총 <strong>22개</strong> (입문 · 중급 · 고급).</p></div>
+      <div class="card tldr"><div class="k">일정</div><p><strong>5/18(월) 개강, 4주 과정.</strong> 1주차 토요일(5/23, 역삼)은 공식 오프라인 ≈300명 예상.</p></div>
+      <div class="card tldr"><div class="k">방식</div><p>강의 + OT 실습 + 매주 본인 사례 발표·피드백. <strong>과제 제출 시 그 주차 22개 스터디 다시보기 전체 열람.</strong></p></div>
+      <div class="card tldr"><div class="k">등록</div><p>5/11 자정까지 <strong>얼리버드 10% + 설명회 참석자 1만 원 쿠폰</strong>(중복). 내일부터 정가. 이번 주 무료 웨비나 3일(화·수·목 21시).</p></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="why">
+    <div class="sec-head"><span class="sec-num">02</span><h2>왜 “바이브 코딩”인가</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>예전 방식</th><th>지금 방식</th></tr></thead>
+        <tbody>
+          <tr><td class="old">GPT ↔ 클로드 ↔ 도구 사이를 <strong style="color:#9aa0b4">사람이 복붙으로 매개</strong> (“AI 서비스 투어”)</td><td class="new"><strong>AI 에이전트가 내 PC 안에서</strong> 파일·코드·에러를 직접 읽고 고치고 실행</td></tr>
+          <tr><td class="old">“이거 어떻게 해?” 라고 <strong style="color:#9aa0b4">질문</strong></td><td class="new">“그거 너가 해줘” 라고 <strong>위임</strong></td></tr>
+          <tr><td class="old">Make · Zapier · n8n 같은 별도 자동화 도구</td><td class="new">Claude Code의 <strong>‘스킬’</strong>로 반복 업무 자동화</td></tr>
+          <tr><td class="old">AI는 ‘뇌’만 빌려줌 — 생각해서 알려만 줌</td><td class="new">AI가 ‘손발’까지 — 슬라이드·캘린더·PPT 생성, 문서 작성, 보고까지</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="clean">
+      <li><strong>“코딩 안 해도 바이브 코딩”</strong> — 핵심은 코드가 아니라 <b>원하는 결과를 상상하고 설명하는 능력</b>. 기획자(기능 리스트 정리)·마케터(광고 데이터 분석)·연구자(지식 관리) 모두 해당.</li>
+      <li><strong>폴더 구조가 중요</strong> — 사람처럼 AI도 정리가 잘 돼 있어야 일을 잘한다. “리서치 폴더 정리해서 기획 폴더에 인사이트 문서 만들어줘” 한마디면 끝.</li>
+    </ul>
+  </section>
+
+  <!-- 3 -->
+  <section id="how">
+    <div class="sec-head"><span class="sec-num">03</span><h2>22기 진행 방식 — 4주</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>시점</th><th>내용</th><th class="c">참여</th></tr></thead>
+        <tbody>
+          <tr><td><strong>개강 전 · 월</strong></td><td>핵심 강의 2h — 에이전트 기본 개념 + 비개발자용 디자인 툴 비교</td><td class="c"><span class="pill req">필수</span></td></tr>
+          <tr><td><strong>1주차 · 화/수/목</strong></td><td>OT + <strong>실습</strong>. 다른 요일 스터디 라이브 청강 무제한</td><td class="c"><span class="pill opt">본인 요일</span></td></tr>
+          <tr><td><strong>1주차 · 금</strong>까지</td><td>OT 듣고 <strong>수강 변경</strong> 완료 → 스터디 확정 (변경 매우 잦음)</td><td class="c"><span class="pill opt">—</span></td></tr>
+          <tr><td><strong>1주차 토 · 5/23 (역삼)</strong></td><td>공식 오프라인 ≈300명: 스터디별 모임 + 베스트 발표 + 네트워킹</td><td class="c"><span class="pill rec">권장</span></td></tr>
+          <tr><td><strong>2~4주차 · 월</strong></td><td>핵심 강의(에이전트 팀, 노트북 지참) + <strong>베스트 발표회 ★강력 추천</strong></td><td class="c"><span class="pill req">필수</span></td></tr>
+          <tr><td><strong>매주 · 화/수/목</strong></td><td>본인 스터디 발표·피드백. <strong>과제 제출 시 그 주차 22개 스터디 다시보기 전체 열람</strong></td><td class="c"><span class="pill opt">본인 요일</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="clean">
+      <li><strong>추가 일정</strong> — 6/6 맥주 모각(역삼, ≈60명, 음료비 1만 원) · 2주차 모각 예정 · 해커톤·특강 비정기.</li>
+      <li><strong>이번 주 무료 웨비나 3일</strong> (매일 21–22시) — 화) 헤르메스 구조(로치) · 수) 에이전트가 에이전트 가르치는 라이브(다인·호트만) · 목) 옵시디언+에르메스 지식관리(브라이언).</li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section id="studies">
+    <div class="sec-head"><span class="sec-num">04</span><h2>스터디 라인업 — 22개</h2></div>
+    <div class="card">
+      <div class="taglist">
+        <div class="tagrow"><div class="tagcat">에이전트 만들기</div><div class="tagbody"><em>헤르메스(에르메스)</em> 입문·고급(“몰라도 정상입니다”) · <em>오픈클로 반려 에이전트</em> · <em>에이전트 팀</em></div></div>
+        <div class="tagrow"><div class="tagcat">콘텐츠</div><div class="tagbody">영상 — 입문 <em>끌림영상</em>(구글 ID 하나로) / 중급 <em>영상 놀이터</em> · <em>카카오 이모티콘 + 인스타툰</em>(신규, 작가 초빙) · <em>전자책</em>(4주 후 실제 출간·출간기념회)</div></div>
+        <div class="tagrow"><div class="tagcat">업무 · 사업</div><div class="tagbody"><em>당근마켓 첫 사업</em> · <em>야근 없는 업무혁명</em>(제안서·기획서) · <em>스타트업 실험실</em>(1인 창업·하네스 엔지니어링) · <em>웹서비스 출시</em>(CTO반) · <em>강사용 운영 자동화</em></div></div>
+        <div class="tagrow"><div class="tagcat">지식관리</div><div class="tagbody"><em>노트북LM</em> 지식체계 · <em>연구자를 위한 리서치 에이전트</em>(박사·교수 타깃)</div></div>
+        <div class="tagrow"><div class="tagcat">투자</div><div class="tagbody">입문 / 중급 — n8n · 엠파렌 병행</div></div>
+        <div class="tagrow"><div class="tagcat">자동화 · 인프라</div><div class="tagbody"><em>클로드코드/코워크 운영 자동화</em>(고급) · <em>텔레그램 인터페이스</em> · <em>비용 걱정 없는 로컬 LLM 에이전트</em>(16GB RAM도 가능)</div></div>
+      </div>
+      <p class="note"><strong>다수 스터디 이미 마감</strong> → 1주차 OT 때 자리가 많이 난다. 권장 전략: ① 원하는 스터디는 <b>대기 신청</b>, ② 다른 요일의 2순위 스터디를 <b>수강 신청</b>, ③ 자리 나면 이동, 안 나면 <b>청강</b>. 청강은 별도 신청 없이 학습 시스템에서 단톡방·줌 링크로 무제한.</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section id="tips">
+    <div class="sec-head"><span class="sec-num">05</span><h2>학습 팁 &amp; 운영 철학</h2></div>
+    <div class="grid cols-2">
+      <div class="card"><div class="k">우선순위</div><p><strong>“다 들어가려 하면 가랑이 찢어진다.”</strong> 필수(월요일 + 본인 스터디)부터 확보 → 여력 되면 청강 → 안 되면 베스트 발표라도. 직접 사례를 만드는 행위에서 점프업한다.</p></div>
+      <div class="card"><div class="k">AI 시대 학습법</div><p>초보가 <strong>먼저 결과물을 만들고</strong>, 익숙해진 뒤 “이게 뭐였지” 역으로 되짚으며 체화한다. 모르는 용어는 “인사만” 해두면 맥락 속 반복으로 자연히 이해되고, 내가 쓰게 될 때 비로소 내 것이 된다.</p></div>
+      <div class="card"><div class="k">강의 &lt; 스터디</div><p>혼자 보는 강의는 의지 싸움 — 매주 과제와 동료 발표가 주는 동기, 그리고 <strong>검색할 키워드조차 모를 때</strong> 힌트를 얻는 곳이 스터디다.</p></div>
+      <div class="card"><div class="k">레벨 선택</div><p>입문 = AI 거의 안 써본 사람도 온보딩 / 중급 = 스터디 1~2번 또는 일주일 디깅 각오 / 고급 = 3기수+ & 복잡한 서비스 배포 니즈. <strong>초보가 고급 신청했으면 입문 수강 + 고급 청강</strong>을 강력 권장.</p></div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="insights">
+    <div class="sec-head"><span class="sec-num">06</span><h2>핵심 인사이트</h2></div>
+    <div class="insights">
+      <div class="ins"><div class="ins-n">1</div><div class="ins-b"><div class="t">패러다임 전환 — ‘질문’에서 ‘위임’으로</div><div class="d">도구 사이를 사람이 복붙으로 잇던 시대가 끝나고, 에이전트가 내 PC 안에서 직접 실행한다. <b>“해줘”가 새로운 인터페이스</b>다.</div></div></div>
+      <div class="ins"><div class="ins-n">2</div><div class="ins-b"><div class="t">‘코딩 없는 바이브 코딩’</div><div class="d">진짜 역량은 코드가 아니라 <b>원하는 결과를 상상·설명하는 힘 + 폴더/지식 구조 정리</b>. 직군 불문 적용된다.</div></div></div>
+      <div class="ins"><div class="ins-n">3</div><div class="ins-b"><div class="t">반감기 1개월</div><div class="d">AI 트렌드가 한 달이면 낡는다 → ‘혼자 강의 완주’ 모델은 깨졌고, <b>‘최신 사례가 매주 쏟아지는 커뮤니티 + 또래 압력’</b> 모델로 대체됐다.</div></div></div>
+      <div class="ins"><div class="ins-n">4</div><div class="ins-b"><div class="t">결과물 우선 → 역방향 학습</div><div class="d">초보일수록 먼저 만들고 나중에 이해한다. 용어는 미리 ‘주차’해뒀다가 필요할 때 꺼내 쓴다 — <b>전통적 ‘기초부터’ 순서의 역전</b>.</div></div></div>
+      <div class="ins"><div class="ins-n">5</div><div class="ins-b"><div class="t">스케일이 곧 콘텐츠</div><div class="d">600명 규모 → 스터디 추가 개설, 오프라인 300명, ‘지피터스 크루즈’ 같은 내러티브. <b>커뮤니티 규모 자체가 마케팅·학습 자산</b>이 됐다.</div></div></div>
+      <div class="ins"><div class="ins-n">6</div><div class="ins-b"><div class="t">에이전트의 다음 단계 — 자가 진화</div><div class="d">에르메스처럼 시키면 반복학습으로 스스로 성장하고, <b>에이전트가 에이전트를 가르치는</b> 구조까지 라이브로 시연된다.</div></div></div>
+      <div class="ins"><div class="ins-n">7</div><div class="ins-b"><div class="t">비용이 새로운 변수</div><div class="d">클라우드 LLM 비용 부담이 커지면서 <b>로컬 모델·가성비 운영</b>이 별도 스터디 주제가 될 만큼 현실적 고민이 됐다.</div></div></div>
+    </div>
+  </section>
+
+  <footer>
+    본 리포트는 설명회 녹화 음성을 자동 전사(faster-whisper large-v3)한 뒤 요약·구조화한 것입니다. 일부 고유명사·수치는 음성 인식 특성상 오차가 있을 수 있습니다.<br/>
+    생성: 2026-05-12 · 비공식 정리본
+  </footer>
+
+</div>
+</body>
+</html>
