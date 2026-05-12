@@ -2,9 +2,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>지피터스 AI 스터디 22기 — 온라인 설명회 요약 리포트</title>
 <meta name="description" content="2026-05-11 지피터스(GPTers) AI 스터디 22기 '바이브 코딩 스터디' 온라인 설명회 요약·인사이트 리포트" />
+<meta name="theme-color" content="#fbfaf8" />
 <meta property="og:title" content="지피터스 AI 스터디 22기 — 설명회 요약 리포트" />
 <meta property="og:description" content="바이브 코딩 스터디 22기: 진행 방식, 스터디 라인업, 핵심 인사이트 정리" />
 <meta property="og:type" content="article" />
@@ -19,10 +20,11 @@
     --good:#0f9d6b; --warn:#b7791f;
     --maxw:880px;
     --r:16px;
+    --pad:24px;
     --shadow:0 1px 2px rgba(20,20,40,.04), 0 6px 22px rgba(30,30,60,.05);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
     font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     background:
@@ -33,14 +35,16 @@
     line-height:1.72;
     -webkit-font-smoothing:antialiased;
     letter-spacing:-.01em;
-    padding:0 20px 100px;
+    padding:0 var(--pad) 100px;
+    word-break:keep-all;
+    overflow-wrap:anywhere;
   }
   .wrap{max-width:var(--maxw);margin:0 auto}
   a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid rgba(86,69,184,.28)}
   a:hover{border-color:var(--accent-ink)}
 
   /* HERO */
-  header{padding:74px 0 16px;text-align:left}
+  header{padding:64px 0 16px;text-align:left}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
     font-size:14px;font-weight:600;color:var(--accent-ink);
@@ -49,7 +53,7 @@
   }
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 10px rgba(124,108,240,.6)}
   h1{
-    font-size:clamp(28px,5.4vw,46px);font-weight:800;line-height:1.22;
+    font-size:clamp(29px,7vw,46px);font-weight:800;line-height:1.22;
     letter-spacing:-.03em;margin-bottom:14px;color:#15171f;
   }
   .sub{font-size:clamp(16px,2.6vw,19px);color:var(--txt-dim);max-width:640px;margin-bottom:26px}
@@ -58,10 +62,10 @@
   .meta b{color:var(--txt-dim);font-weight:600}
 
   /* SECTION */
-  section{margin-top:56px}
+  section{margin-top:54px}
   .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
   .sec-num{font-size:14px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:.04em}
-  h2{font-size:clamp(21px,3.5vw,27px);font-weight:750;letter-spacing:-.02em;color:#15171f}
+  h2{font-size:clamp(22px,5vw,27px);font-weight:750;letter-spacing:-.02em;color:#15171f}
   h3{font-size:16.5px;font-weight:700;color:var(--txt);margin:22px 0 8px}
 
   /* CARDS / GRID */
@@ -84,8 +88,8 @@
   ul.clean li strong{color:var(--txt);font-weight:650}
   ul.clean li b{color:var(--accent-ink);font-weight:650}
 
-  /* TABLE */
-  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card);box-shadow:var(--shadow)}
+  /* TABLE (desktop) */
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--r);background:var(--card);box-shadow:var(--shadow)}
   table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
   th,td{text-align:left;padding:13px 16px;vertical-align:top;border-bottom:1px solid var(--line-soft)}
   thead th{background:var(--bg-soft);color:var(--txt-dim);font-weight:650;font-size:13.5px;letter-spacing:.02em;text-transform:uppercase}
@@ -105,7 +109,7 @@
   .tagrow{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
   .tagrow + .tagrow{padding-top:14px;border-top:1px solid var(--line-soft)}
   .tagcat{flex:0 0 130px;font-weight:700;font-size:15px;color:var(--accent-ink);padding-top:2px}
-  .tagbody{flex:1;min-width:240px;color:var(--txt-dim);font-size:15.5px}
+  .tagbody{flex:1;min-width:200px;color:var(--txt-dim);font-size:15.5px}
   .tagbody em{font-style:normal;color:var(--txt);font-weight:600}
   .note{margin-top:16px;font-size:14.5px;color:var(--txt-faint);border-left:2px solid var(--accent);padding:6px 0 6px 14px;background:linear-gradient(90deg,var(--accent-soft),transparent)}
 
@@ -113,16 +117,74 @@
   .insights{display:flex;flex-direction:column;gap:12px}
   .ins{display:flex;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow)}
   .ins-n{flex:0 0 34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 5px 14px rgba(124,108,240,.28)}
-  .ins-b{flex:1}
+  .ins-b{flex:1;min-width:0}
   .ins-b .t{font-weight:750;font-size:16.5px;color:#15171f;margin-bottom:4px}
   .ins-b .d{font-size:15.5px;color:var(--txt-dim)}
   .ins-b .d b{color:var(--accent-ink);font-weight:650}
 
-  footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--txt-faint);line-height:1.7}
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--txt-faint);line-height:1.7}
   .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
-  .toc a{font-size:14px;color:var(--txt-dim);background:#fff;border:1px solid var(--line);padding:7px 12px;border-radius:8px;border-bottom:1px solid var(--line)}
+  .toc a{font-size:14px;color:var(--txt-dim);background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:8px;border-bottom:1px solid var(--line)}
   .toc a:hover{color:var(--txt);border-color:var(--accent)}
-  @media print{body{background:#fff}.card,.ins,.tbl-wrap{box-shadow:none;break-inside:avoid}}
+
+  /* ===== MOBILE OPTIMIZED ===== */
+  @media(max-width:620px){
+    :root{--pad:16px;--r:14px}
+    body{padding:0 var(--pad) 72px;line-height:1.68}
+    header{padding:40px 0 8px}
+    .eyebrow{margin-bottom:18px;font-size:13px;padding:5px 11px}
+    h1{margin-bottom:12px}
+    .sub{margin-bottom:20px}
+    .meta{font-size:13.5px;gap:7px 8px}
+    section{margin-top:42px}
+    .sec-head{margin-bottom:16px;gap:9px}
+    h3{margin:18px 0 7px}
+    .card{padding:17px 17px}
+    .card.tldr{padding:18px 18px}
+    .lead{padding:16px 17px;font-size:16px}
+    .toc{gap:7px;margin-top:24px}
+    .toc a{flex:1 1 calc(50% - 7px);text-align:center;font-size:13.5px;padding:9px 8px}
+    ul.clean li{font-size:15px}
+
+    /* tables -> stacked list */
+    .tbl-wrap{overflow:visible;border-radius:var(--r)}
+    table{min-width:0;font-size:15px;display:block}
+    thead{display:none}
+    tbody{display:block}
+    tbody tr{display:block;padding:15px 16px;border-bottom:1px solid var(--line)}
+    tbody tr:last-child{border-bottom:none}
+    tbody tr:nth-child(even) td{background:transparent}
+    tbody td{display:block;padding:0;border:none}
+    tbody td + td{margin-top:7px}
+    td[data-label]::before{
+      content:attr(data-label);display:block;
+      font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+      color:var(--accent-ink);margin-bottom:3px;
+    }
+    td.c{text-align:left;white-space:normal}
+    /* before/now table arrow cue */
+    table.cmp tbody td.new::before{color:var(--accent-ink)}
+    table.cmp tbody td.old{color:var(--txt-faint)}
+    table.cmp tbody td.old::before{color:var(--txt-faint)}
+
+    /* tag rows stack */
+    .tagrow{flex-direction:column;gap:5px}
+    .tagrow + .tagrow{padding-top:14px}
+    .tagcat{flex:none;font-size:14.5px}
+    .tagbody{min-width:0;font-size:15px}
+    .note{font-size:14px}
+
+    /* insights */
+    .ins{gap:13px;padding:16px 16px}
+    .ins-n{flex-basis:30px;height:30px;font-size:14px;border-radius:9px}
+    .ins-b .t{font-size:16px}
+    .ins-b .d{font-size:15px}
+    footer{margin-top:48px;font-size:13px}
+  }
+  @media(max-width:380px){
+    .toc a{flex-basis:100%}
+  }
+  @media print{body{background:#fff}.card,.ins,.tbl-wrap{box-shadow:none;break-inside:avoid}.toc{display:none}}
 </style>
 </head>
 <body>
@@ -164,13 +226,25 @@
   <section id="why">
     <div class="sec-head"><span class="sec-num">02</span><h2>왜 “바이브 코딩”인가</h2></div>
     <div class="tbl-wrap">
-      <table>
+      <table class="cmp">
         <thead><tr><th>예전 방식</th><th>지금 방식</th></tr></thead>
         <tbody>
-          <tr><td class="old">GPT ↔ 클로드 ↔ 도구 사이를 <strong style="color:#7a7f90">사람이 복붙으로 매개</strong> (“AI 서비스 투어”)</td><td class="new"><strong>AI 에이전트가 내 PC 안에서</strong> 파일·코드·에러를 직접 읽고 고치고 실행</td></tr>
-          <tr><td class="old">“이거 어떻게 해?” 라고 <strong style="color:#7a7f90">질문</strong></td><td class="new">“그거 너가 해줘” 라고 <strong>위임</strong></td></tr>
-          <tr><td class="old">Make · Zapier · n8n 같은 별도 자동화 도구</td><td class="new">Claude Code의 <strong>‘스킬’</strong>로 반복 업무 자동화</td></tr>
-          <tr><td class="old">AI는 ‘뇌’만 빌려줌 — 생각해서 알려만 줌</td><td class="new">AI가 ‘손발’까지 — 슬라이드·캘린더·PPT 생성, 문서 작성, 보고까지</td></tr>
+          <tr>
+            <td class="old" data-label="예전 방식">GPT ↔ 클로드 ↔ 도구 사이를 <strong style="color:#7a7f90">사람이 복붙으로 매개</strong> (“AI 서비스 투어”)</td>
+            <td class="new" data-label="지금 방식"><strong>AI 에이전트가 내 PC 안에서</strong> 파일·코드·에러를 직접 읽고 고치고 실행</td>
+          </tr>
+          <tr>
+            <td class="old" data-label="예전 방식">“이거 어떻게 해?” 라고 <strong style="color:#7a7f90">질문</strong></td>
+            <td class="new" data-label="지금 방식">“그거 너가 해줘” 라고 <strong>위임</strong></td>
+          </tr>
+          <tr>
+            <td class="old" data-label="예전 방식">Make · Zapier · n8n 같은 별도 자동화 도구</td>
+            <td class="new" data-label="지금 방식">Claude Code의 <strong>‘스킬’</strong>로 반복 업무 자동화</td>
+          </tr>
+          <tr>
+            <td class="old" data-label="예전 방식">AI는 ‘뇌’만 빌려줌 — 생각해서 알려만 줌</td>
+            <td class="new" data-label="지금 방식">AI가 ‘손발’까지 — 슬라이드·캘린더·PPT 생성, 문서 작성, 보고까지</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -187,12 +261,12 @@
       <table>
         <thead><tr><th>시점</th><th>내용</th><th class="c">참여</th></tr></thead>
         <tbody>
-          <tr><td><strong>개강 전 · 월</strong></td><td>핵심 강의 2h — 에이전트 기본 개념 + 비개발자용 디자인 툴 비교</td><td class="c"><span class="pill req">필수</span></td></tr>
-          <tr><td><strong>1주차 · 화/수/목</strong></td><td>OT + <strong>실습</strong>. 다른 요일 스터디 라이브 청강 무제한</td><td class="c"><span class="pill opt">본인 요일</span></td></tr>
-          <tr><td><strong>1주차 · 금</strong>까지</td><td>OT 듣고 <strong>수강 변경</strong> 완료 → 스터디 확정 (변경 매우 잦음)</td><td class="c"><span class="pill opt">—</span></td></tr>
-          <tr><td><strong>1주차 토 · 5/23 (역삼)</strong></td><td>공식 오프라인 ≈300명: 스터디별 모임 + 베스트 발표 + 네트워킹</td><td class="c"><span class="pill rec">권장</span></td></tr>
-          <tr><td><strong>2~4주차 · 월</strong></td><td>핵심 강의(에이전트 팀, 노트북 지참) + <strong>베스트 발표회 ★강력 추천</strong></td><td class="c"><span class="pill req">필수</span></td></tr>
-          <tr><td><strong>매주 · 화/수/목</strong></td><td>본인 스터디 발표·피드백. <strong>과제 제출 시 그 주차 22개 스터디 다시보기 전체 열람</strong></td><td class="c"><span class="pill opt">본인 요일</span></td></tr>
+          <tr><td data-label="시점"><strong>개강 전 · 월</strong></td><td data-label="내용">핵심 강의 2h — 에이전트 기본 개념 + 비개발자용 디자인 툴 비교</td><td class="c" data-label="참여"><span class="pill req">필수</span></td></tr>
+          <tr><td data-label="시점"><strong>1주차 · 화/수/목</strong></td><td data-label="내용">OT + <strong>실습</strong>. 다른 요일 스터디 라이브 청강 무제한</td><td class="c" data-label="참여"><span class="pill opt">본인 요일</span></td></tr>
+          <tr><td data-label="시점"><strong>1주차 · 금</strong>까지</td><td data-label="내용">OT 듣고 <strong>수강 변경</strong> 완료 → 스터디 확정 (변경 매우 잦음)</td><td class="c" data-label="참여"><span class="pill opt">—</span></td></tr>
+          <tr><td data-label="시점"><strong>1주차 토 · 5/23 (역삼)</strong></td><td data-label="내용">공식 오프라인 ≈300명: 스터디별 모임 + 베스트 발표 + 네트워킹</td><td class="c" data-label="참여"><span class="pill rec">권장</span></td></tr>
+          <tr><td data-label="시점"><strong>2~4주차 · 월</strong></td><td data-label="내용">핵심 강의(에이전트 팀, 노트북 지참) + <strong>베스트 발표회 ★강력 추천</strong></td><td class="c" data-label="참여"><span class="pill req">필수</span></td></tr>
+          <tr><td data-label="시점"><strong>매주 · 화/수/목</strong></td><td data-label="내용">본인 스터디 발표·피드백. <strong>과제 제출 시 그 주차 22개 스터디 다시보기 전체 열람</strong></td><td class="c" data-label="참여"><span class="pill opt">본인 요일</span></td></tr>
         </tbody>
       </table>
     </div>
